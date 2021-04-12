@@ -1,0 +1,67 @@
+<h1 class="title">BINDING DATA</h1>
+
+<!-- Interpolation -->
+<h2 class="subtitle" ngNonBindable>Interpolation: {{}}</h2>
+<p class="divideSec">{{title1}}</p>
+<p class="divideSec">{{interpolation(100, 200)}}</p>
+<p class="divideSec" ngNonBindable>{{title1}}</p>
+<p class="divideSec">uppercase pipe: {{title1 | uppercase}} </p>
+<p class="divideSec">The undefind or null item is: {{item!}}</p>
+
+<!-- Property Binding -->
+<!---- A: DOM Property Binding: [innerText], [innerHTML], [src], etc ---->
+<h2 class="subtitle">Property Binding: []</h2>
+<p class="divideSec" [innerText]="title2"></p>
+<p class="divideSec" [innerText]="title1 + ' & ' + title2"></p>
+<p class="divideSec">button is disabled: <button [disabled]="isDisabled">Enable</button></p>
+<!---- B: Class Binding ---->
+<p class="divideSec" class="red">RED</p>
+<p class="divideSec" [className]="'size20 hyperlink'">RED</p>
+<!-- <p [ngClass]="'size20 hyperlink'">RED</p> -->
+<!-- <p [ngClass]="['size20', 'hyperlink']">REDs</p> -->
+<!-- <p ngClass="size20 hyperlink">REDs</p> -->
+<p [className]="item ? 'green':'red'">item status</p>
+<p [class.red]="false" [class.green]="true">This is conditionally bind a class</p>
+<p [ngClass]="{'red': true, 'green': false}">This is conditionally bind a class with ngClass</p>
+<!-- <p [ngClass]="cssObject">This is conditionally bind a class with ngClass</p> -->
+<!---- C: Style Binding ---->
+<p [style.color]="'blue'" [style.background-color]="'#e7e7e7'" [style.margin]="'0 10px'" [style.font-size.px]="10"
+    [style.width.%]="50">I am blue!
+</p>
+<p [ngStyle]="{'color': 'blue', 'background-color': '#e7e7e7', 'margin': '10px auto'}">I am blue!
+</p>
+<!---- D: Attribute Binding ---->
+<button [attr.aria-label]="closeLabel">X</button>
+
+<!-- Event Binding -->
+<h2 class="subtitle">Event Binding: ()</h2>
+<p class="divideSec"><button (click)="clickMe()">Add to the Counter</button>: {{clickCounter}}</p>
+<!-- <p><button on-click="clickMe()">Add to the Counter</button>: {{clickCounter}}</p> -->
+<input (input)="handleInput($event)" />
+<p class="divideSec">your serch is: {{value}}</p>
+<!-- <input #el (input)="handleVal(el)" />
+<p>your serch is: {{newVal}}</p> -->
+<input (keyup.control.shift.enter)="val=$any($event.target).value">
+<p>Press Ctrl+Shift+Enter: {{val}}</p>
+
+<!-- Two-Way Binding -->
+<h2 class="subtitle">Two-Way Binding: [()]</h2>
+<!-- <input type="text" [value]="name" (input)="name=$any($event.target).value" />
+<p>Your Name Is {{name}}</p>
+<button (click)="clearName()">Clear</button>
+<br/> -->
+<div class="divideSec">
+    <input type="text" name="inputValues" [(ngModel)]="inputValues" />
+    <p>You Entered {{inputValues}}</p>
+    <button (click)="clearValue()">CLEAR</button>
+</div>
+<!---- A: Custom Two-Way Binding ---->
+<div class="divideSec">
+    <custom-binding [(count)]="count"></custom-binding>
+    <p>Parent Count: {{count}}</p>
+    <button (click)=(clearCount())>Clear</button>
+</div>
+<!---- B: ngModelChange ---->
+<p>Look On Console Log</p>
+<input type="text" name="fname" ngModel (ngModelChange)=(fnameChange($event)) />
+

@@ -1,0 +1,19 @@
+<h2 class="title">Reuse Component</h2>
+<ul class="table__header">
+    <li class="table__list">Customer Number</li>
+    <li class="table__list">Name</li>
+    <li class="table__list">Address</li>
+    <li class="table__list">City</li>
+    <li class="table__list">State</li>
+    <li class="table__list">Country</li>
+</ul>
+<ul class="table__body" *ngFor="let customer of customers">
+    <li class="table__list">{{customer.customerNo}}</li>
+    <li class="table__list">{{customer.name}}</li>
+    <li class="table__list">{{customer.address}}</li>
+    <li class="table__list">{{customer.city}}</li>
+    <li class="table__list">{{customer.state}}</li>
+    <li class="table__list">{{customer.country}}</li>
+</ul>
+<app-structural-dir></app-structural-dir>
+<app-trackBy></app-trackBy>

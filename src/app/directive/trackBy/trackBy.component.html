@@ -1,0 +1,13 @@
+<h2>Trackby</h2>
+<section>
+    <input type="text" placeholder="MOVIE NAME" [(ngModel)]="mvTitle" />
+    <input type="text" placeholder="MOVIE DIRECTOR" [(ngModel)]="mvDir" />
+    <button (click)="addMovie()">Add</button>
+</section>
+<section>
+    <ul *ngFor="let movie of movies; let i=index; trackBy:trackByFn;">
+        <li>{{movie.title}} - {{movie.director}}</li>
+        <li><button (click)="delMovie(i)">Delete</button></li>
+    </ul>
+    <button (click)="refresh()">Refresh</button>
+</section>
