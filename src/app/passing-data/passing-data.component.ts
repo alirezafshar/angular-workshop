@@ -13,6 +13,8 @@ export class PassingDataComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  //@input & @output
+
   increaseNum = () => {
     this.increment++;
   };
@@ -24,6 +26,8 @@ export class PassingDataComponent implements OnInit {
   resetFunction = (reset: number) => {
     this.increment = reset;
   };
+
+  //@ViewChild
 
   @ViewChild(ViewChildComponent) child!: ViewChildComponent;
 

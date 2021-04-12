@@ -1,8 +1,13 @@
 <h1 class="title">passing-data</h1>
-<section class="divideSec"> 
+<section class="divideSec">
     <app-child [count]="increment" (refreshNum)="resetFunction($event)"></app-child>
     <button (click)="increaseNum()">GO UP</button>
     <button (click)="decreaseNum()">Go Down</button>
+</section>
+<section class="divideSec">
+    <app-local-variable #child></app-local-variable>
+    <button (click)="child.up()">Up</button>
+    <button (click)="child.down()">Down</button>
 </section>
 <section>
     <app-view-child></app-view-child>
@@ -10,4 +15,3 @@
     <button (click)="godown()">Decrement</button>
     <button (click)="refresh()">RESET</button>
 </section>
-
