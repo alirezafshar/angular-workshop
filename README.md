@@ -1,4 +1,5 @@
-<<<<<<< HEAD
+Test of the basic codes in Angular
+
 # CustomWebpack
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
@@ -26,7 +27,4 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-=======
-# angular-workshop
-Test of the basic codes in Angular
->>>>>>> c43ca7188e64c43630a6ff201c669609b8d07cce
+
