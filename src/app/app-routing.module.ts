@@ -30,6 +30,11 @@ const routes: Routes = [
         (m) => m.PassingDataModule
       ),
   },
+  {
+    path: 'life-cycle',
+    loadChildren: () =>
+      import('./life-cycle/life-cycle.module').then((m) => m.LifeCycleModule),
+  },
 ];
 
 @NgModule({
