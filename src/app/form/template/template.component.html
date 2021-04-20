@@ -1,0 +1,73 @@
+<h2 class="subtitle">Template Driven Form</h2>
+<form class="form" #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+
+    <div class="form__control">
+        <label for="firstName">First Name: </label>
+        <input type="text" id="firstName" name="firstName" #firstName="ngModel" ngModel />
+    </div>
+
+    <div class="form__control">
+        <label for="lastName">Last Name: </label>
+        <input type="text" id="lastName" name="lastName" ngModel />
+    </div>
+
+
+    <div class="form__control">
+        <label for="email">Email: </label>
+        <input type="text" id="email" name="email" ngModel />
+    </div>
+
+
+    <div class="form__control">
+        Gender:
+        <label for="male">Male</label>
+        <input type="radio" id="male" name="gender" value="male" ngModel />
+        <label for="female">Female</label>
+        <input type="radio" id="female" name="gender" value="female" ngModel />
+    </div>
+
+
+    <div class="form__control">
+        <label for="isMarried">Are You Married: </label>
+        <input type="checkbox" name="isMarried" ngModel />
+    </div>
+
+
+    <div class="form__control">
+        <label for="country">Country: </label>
+        <select id="country" name="country" ngModel>
+            <option selected="" value="">Choose Your Country</option>
+            <option [ngValue]="country.id" *ngFor="let country of countries"
+                [attr.selected]="country.id == contact.country">{{country.name}}</option>
+        </select>
+    </div>
+
+    <address class="form__control" ngModelGroup="address">
+        <label for="cityName">City: </label>
+        <input type="text" id="cityName" name="cityName" ngModel />
+        <label for="streetName">Street: </label>
+        <input type="text" id="streetName" name="streetName" ngModel />
+        <label for="pin">Postal: </label>
+        <input type="text" id="pin" name="pin" ngModel />
+    </address>
+
+
+    <button (click)="changeCountry()">Change Country</button>
+    <button (click)="patchValue()">Change Part of Values</button>
+    <button (click)="changeAddress()">Change Address</button>
+    <button (click)="setDefault()">Set Default Value</button>
+    <button type="submit">Submit</button>
+    <button type="reset" (click)="reset(contactForm)">Reset</button>
+</form>
+
+<h3>ngForm: #contactForm</h3>
+<pre>Values: {{contactForm.value | json}}</pre>
+<pre>Valid: {{contactForm.valid}}</pre>
+<pre>Touched: {{contactForm.touched}}</pre>
+<pre>Submitted: {{contactForm.submitted}}</pre>
+
+<h3>Form Control: #firstName</h3>
+<pre>Values: {{firstName.value}}</pre>
+<pre>Valid: {{firstName.valid}}</pre>
+<pre>Invalid: {{firstName.invalid}}</pre>
+<pre>Touched: {{firstName.touched}}</pre>
