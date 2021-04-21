@@ -1,9 +1,13 @@
-<h2 class="subtitle">Reactive Driven Form</h2>
-<form class="form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+<h2 class="subtitle">Reactive Driven Form: Form Builder</h2>
+<form class="form" [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
 
     <div class="form__control">
         <label for="firstName">First Name: </label>
         <input type="text" id="firstName" name="firstName" formControlName="firstName" />
+        <!-- <div *ngIf="!firstName?.valid && (firstName?.dirty || firstName?.touched)">
+            <p [hidden]="!firstName.errors.required">First Name is required</p>
+            <p [hidden]="!firstName.errors.minlength">Min Length is 10</p>
+        </div> -->
     </div>
 
     <div class="form__control">
@@ -50,5 +54,11 @@
         <input type="text" id="pin" name="pin" formControlName="pin" />
     </address>
 
-    <button type="submit">Submit</button>
+    <button type="submit" [disabled]="!contactForm.valid">Submit</button>
 </form>
+
+<div>{{contactForm.value | json}}</div>
+<div>Valid: {{contactForm.valid}}</div>
+<div>Touched: {{contactForm.touched}}</div>
+<div>Errors: {{contactForm.errors}}</div>
+<div>Dirty: {{contactForm.dirty}}</div>
