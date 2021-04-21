@@ -4,14 +4,16 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { PipeModule } from '../pipe/pipe.module';
+import { NavComponent } from './nav/nav.component';
 
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, NavComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
     PipeModule
-  ]
+  ],
+  exports: [NavComponent]
 })
 export class HomeModule { }

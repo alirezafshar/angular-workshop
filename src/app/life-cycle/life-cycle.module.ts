@@ -6,14 +6,14 @@ import { LifeCycleComponent } from './life-cycle.component';
 import { ChildOfCycleComponent } from './child-of-cycle/child-of-cycle.component';
 import { FormsModule } from '@angular/forms';
 import { GrandChildComponent } from './grand-child/grand-child.component';
-
+import { HomeModule } from '../home/home.module';
 
 @NgModule({
-  declarations: [LifeCycleComponent, ChildOfCycleComponent, GrandChildComponent],
-  imports: [
-    CommonModule,
-    LifeCycleRoutingModule,
-    FormsModule
-  ]
+  declarations: [
+    LifeCycleComponent,
+    ChildOfCycleComponent,
+    GrandChildComponent,
+  ],
+  imports: [CommonModule, LifeCycleRoutingModule, HomeModule, FormsModule],
 })
-export class LifeCycleModule { }
+export class LifeCycleModule {}

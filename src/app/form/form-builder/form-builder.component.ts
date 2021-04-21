@@ -18,55 +18,54 @@ export class FormBuilderComponent implements OnInit {
 
   contactForm = this.FormBuilder.group({
     firstName: ['', [Validators.required, Validators.minLength(3)]],
-    lastName: ['', [Validators.required, Validators.maxLength(15), Validators.pattern('^[a-zA-Z]+$')]],
+    lastName: [
+      '',
+      [
+        Validators.required,
+        Validators.maxLength(15),
+        Validators.pattern('^[a-zA-Z]+$'),
+      ],
+    ],
     email: ['', [Validators.required, Validators.email]],
     gender: ['', [Validators.required]],
     isMarried: ['', [Validators.required]],
     country: ['', [Validators.required]],
     address: this.FormBuilder.group({
-      cityName: ['', [Validators.required]],
-      streetName: ['', [Validators.required]],
+      cityName: [''],
+      streetName: [''],
       pin: ['', [Validators.required]],
     }),
   });
 
   ngOnInit(): void {}
 
-  firstName() {
+  get firstName() {
     return this.contactForm.get('firstName');
   }
 
-  // lastName() {
-  //   return this.contactForm.get('lastName');
-  // }
+  get lastName() {
+    return this.contactForm.get('lastName');
+  }
 
-  // email() {
-  //   return this.contactForm.get('email');
-  // }
+  get email() {
+    return this.contactForm.get('email');
+  }
 
-  // gender() {
-  //   return this.contactForm.get('gender');
-  // }
+  get gender() {
+    return this.contactForm.get('gender');
+  }
 
-  // isMarried() {
-  //   return this.contactForm.get('isMarried');
-  // }
+  get isMarried() {
+    return this.contactForm.get('isMarried');
+  }
 
-  // country() {
-  //   return this.contactForm.get('country');
-  // }
+  get country() {
+    return this.contactForm.get('country');
+  }
 
-  // cityName() {
-  //   return this.contactForm.get('address')?.get('cityName');
-  // }
-
-  // StreetName() {
-  //   return this.contactForm.get('address')?.get('streetName');
-  // }
-
-  // pin() {
-  //   return this.contactForm.get('address')?.get('pin');
-  // }
+  get pin() {
+    return this.contactForm.get('address')?.get('pin');
+  }
 
   onSubmit() {
     console.log('contact values: ', this.contactForm.value);

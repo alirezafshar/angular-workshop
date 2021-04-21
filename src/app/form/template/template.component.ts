@@ -27,7 +27,7 @@ export class TemplateComponent implements OnInit {
       email: 'sachin@gmail.com',
       gender: 'male',
       isMarried: false,
-      country: 2,
+      country: 0,
       address: {
         cityName: 'Toronto',
         streetName: 'Perry Cross Rd',

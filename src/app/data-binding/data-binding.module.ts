@@ -5,6 +5,7 @@ import { DataBindingRoutingModule } from './data-binding-routing.module';
 import { DataBindingComponent } from './data-binding.component';
 import { FormsModule } from '@angular/forms';
 import { CustomBindingComponent } from './custom-binding/custom-binding.component';
+import { HomeModule } from '../home/home.module';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { CustomBindingComponent } from './custom-binding/custom-binding.componen
   imports: [
     CommonModule,
     DataBindingRoutingModule,
+    HomeModule,
     FormsModule
   ]
 })

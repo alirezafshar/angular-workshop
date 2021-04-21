@@ -1,0 +1,7 @@
+.ng-valid.ng-dirty:not(form, address) {
+  border: solid 2px lightgreen;
+}
+
+.ng-invalid.ng-dirty:not(form, address) {
+  border: solid 2px lightcoral;
+}

@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { registerLocaleData } from '@angular/common';
 import localefr from '@angular/common/locales/fa';
+
 registerLocaleData(localefr);
 
 @NgModule({

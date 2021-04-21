@@ -4,21 +4,29 @@
     <div class="form__control">
         <label for="firstName">First Name: </label>
         <input type="text" id="firstName" name="firstName" formControlName="firstName" />
-        <!-- <div *ngIf="!firstName?.valid && (firstName?.dirty || firstName?.touched)">
-            <p [hidden]="!firstName.errors.required">First Name is required</p>
-            <p [hidden]="!firstName.errors.minlength">Min Length is 10</p>
-        </div> -->
+        <div *ngIf="!firstName?.valid && (firstName?.dirty || firstName?.touched)">
+            <p class="red" [hidden]="!firstName?.errors?.required">First Name is required</p>
+            <p class="red" [hidden]="!firstName?.errors?.minlength">Min Length is 3</p>
+        </div>
     </div>
 
     <div class="form__control">
         <label for="lastName">Last Name: </label>
         <input type="text" id="lastName" name="lastName" formControlName="lastName" />
+        <div *ngIf="!lastName?.valid && (lastName?.dirty || lastName?.touched)">
+            <p class="red" [hidden]="!lastName?.errors?.required">Last name is required</p>
+            <p class="red" [hidden]="!lastName?.errors?.maxlength">Max length is 15</p>
+        </div>
     </div>
 
 
     <div class="form__control">
         <label for="email">Email: </label>
         <input type="text" id="email" name="email" formControlName="email" />
+        <div *ngIf="!email?.valid && (email?.dirty || email?.touched)">
+            <p class="red" [hidden]="!email?.errors?.required">Email is required</p>
+            <p class="red" [hidden]="!email?.errors?.email">Email is not correct</p>
+        </div>
     </div>
 
 
@@ -28,12 +36,18 @@
         <input type="radio" id="male" name="gender" value="male" formControlName="gender" />
         <label for="female">Female</label>
         <input type="radio" id="female" name="gender" value="female" formControlName="gender" />
+        <div *ngIf="!gender?.valid && (gender?.dirty || gender?.touched)">
+            <p class="red" [hidden]="!gender?.errors?.required">Gender is required</p>
+        </div>
     </div>
 
 
     <div class="form__control">
         <label for="isMarried">Are You Married: </label>
         <input type="checkbox" name="isMarried" formControlName="isMarried" />
+        <div *ngIf="!isMarried?.valid && (isMarried?.dirty || isMarried?.touched)">
+            <p class="red" [hidden]="!isMarried?.errors?.required">Your status is required</p>
+        </div>
     </div>
 
 
@@ -43,6 +57,9 @@
             <option [attr.selected]="true" value="">Choose Your Country</option>
             <option [ngValue]="country.id" *ngFor="let country of countries">{{country.name}}</option>
         </select>
+        <div *ngIf="!country?.valid && (country?.dirty || country?.touched)">
+            <p class="red" [hidden]="!country?.errors?.required">Country is required</p>
+        </div>
     </div>
 
     <address class="form__control" formGroupName="address">
@@ -52,6 +69,9 @@
         <input type="text" id="streetName" name="streetName" formControlName="streetName" />
         <label for="pin">Postal: </label>
         <input type="text" id="pin" name="pin" formControlName="pin" />
+        <div *ngIf="!pin?.valid && (pin?.dirty || pin?.touched)">
+            <p class="red" [hidden]="!pin?.errors?.required">Your postal code    is required</p>
+        </div>
     </address>
 
     <button type="submit" [disabled]="!contactForm.valid">Submit</button>
@@ -60,5 +80,4 @@
 <div>{{contactForm.value | json}}</div>
 <div>Valid: {{contactForm.valid}}</div>
 <div>Touched: {{contactForm.touched}}</div>
-<div>Errors: {{contactForm.errors}}</div>
 <div>Dirty: {{contactForm.dirty}}</div>
