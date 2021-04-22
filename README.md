@@ -1,7 +1,7 @@
 # Angular Workshop
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
-In this code I have Tested the basic codes in Angular.
+In these set of codes I have tested the basic concepts in Angular.
 
 ## Development server
 
