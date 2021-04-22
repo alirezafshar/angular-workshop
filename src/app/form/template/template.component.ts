@@ -16,6 +16,7 @@ export class TemplateComponent implements OnInit {
   ];
   contact!: Contact;
 
+  //##reference to the Form model in the template for using setValue & patchValue
   @ViewChild('contactForm') contactForm!: NgForm;
 
   constructor() {}
@@ -60,14 +61,14 @@ export class TemplateComponent implements OnInit {
       streetName: 'Aghdasiyeh',
       pin: '1234',
     };
-    let address = this.contactForm.controls['address'] as FormGroup;
+    let address = this.contactForm.control.get('address') as FormGroup;
     address.patchValue(obj);
   }
 
   
   //##update the value of individual control
   changeCountry() {
-    this.contactForm.controls['country'].setValue(1);
+    this.contactForm.control.get('country')?.setValue(1);
   }
 
   //##Another way:

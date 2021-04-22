@@ -8,6 +8,7 @@ import { TemplateComponent } from './template/template.component';
 import { ReactiveComponent } from './reactive/reactive.component';
 import { FormBuilderComponent } from './form-builder/form-builder.component';
 import { HomeModule } from '../home/home.module';
+import { ValueChangesComponent } from './value-changes/value-changes.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { HomeModule } from '../home/home.module';
     TemplateComponent,
     ReactiveComponent,
     FormBuilderComponent,
+    ValueChangesComponent,
   ],
   imports: [
     CommonModule,

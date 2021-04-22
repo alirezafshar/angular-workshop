@@ -35,6 +35,7 @@
 
     <div class="form__control">
         <label for="country">Country: </label>
+        <!--Two-way of bundiling is only working at template driven form style-->
         <select id="country" name="country" [(ngModel)]="contact.country">
             <option value="0">Choose Your Country</option>
             <option [ngValue]="country.id" *ngFor="let country of countries"

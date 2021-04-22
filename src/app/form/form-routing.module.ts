@@ -4,6 +4,7 @@ import { FormBuilderComponent } from './form-builder/form-builder.component';
 import { FormComponent } from './form.component';
 import { ReactiveComponent } from './reactive/reactive.component';
 import { TemplateComponent } from './template/template.component';
+import { ValueChangesComponent } from './value-changes/value-changes.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
       { path: 'template', component: TemplateComponent },
       { path: 'reactive', component: ReactiveComponent },
       { path: 'formBuilder', component: FormBuilderComponent },
+      { path: 'valueChanges', component: ValueChangesComponent },
     ],
   },
 ];

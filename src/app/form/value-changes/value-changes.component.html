@@ -1,0 +1,57 @@
+<h2 class="subtitle">Value Changes</h2>
+<form class="form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
+    <div class="form__control">
+        <label for="firstName">First Name: </label>
+        <input type="text" id="firstName" name="firstName" formControlName="firstName" />
+    </div>
+
+    <div class="form__control">
+        <label for="lastName">Last Name: </label>
+        <input type="text" id="lastName" name="lastName" formControlName="lastName" [attr.disabled]="true" />
+    </div>
+
+
+    <div class="form__control">
+        <label for="email">Email: </label>
+        <input type="text" id="email" name="email" formControlName="email" [attr.disabled]="true" />
+    </div>
+
+
+    <div class="form__control">
+        Gender:
+        <label for="male">Male</label>
+        <input type="radio" id="male" name="gender" value="male" formControlName="gender" [attr.disabled]="true" />
+        <label for="female">Female</label>
+        <input type="radio" id="female" name="gender" value="female" formControlName="gender" [attr.disabled]="true" />
+    </div>
+
+
+    <div class="form__control">
+        <label for="isMarried">Are You Married: </label>
+        <input type="checkbox" name="isMarried" formControlName="isMarried" [attr.disabled]="true" />
+    </div>
+
+
+    <div class="form__control">
+        <label for="country">Country: </label>
+        <select id="country" name="country" formControlName="country" [attr.disabled]="true">
+            <option value="0">Choose Your Country</option>
+            <option [ngValue]="country.id" *ngFor="let country of countries"
+                [attr.selected]="country.id == contact?.country">{{country.name}}</option>
+        </select>
+    </div>
+
+    <address class="form__control" formGroupName="address">
+        <label for="cityName">City: </label>
+        <input type="text" id="cityName" name="cityName" formControlName="cityName" [attr.disabled]="true" />
+        <label for="streetName">Street: </label>
+        <input type="text" id="streetName" name="streetName" formControlName="streetName" [attr.disabled]="true" />
+        <label for="pin">Postal: </label>
+        <input type="text" id="pin" name="pin" formControlName="pin" [attr.disabled]="true" />
+    </address>
+
+    <button (click)="withOnlySelf()">Update Only Self</button>
+    <button (click)="withEmitEvent()">Prevent Update</button>
+    <button type="submit">Submit</button>
+</form>
