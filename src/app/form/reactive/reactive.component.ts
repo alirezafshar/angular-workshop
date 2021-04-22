@@ -46,9 +46,10 @@ export class ReactiveComponent implements OnInit {
         streetName: '',
         pin: '',
       },
-    }
+    };
   }
 
+  //update the entire FormGroup
   setDefault() {
     this.contact = {
       firstName: 'Rahul',
@@ -67,6 +68,7 @@ export class ReactiveComponent implements OnInit {
     this.contactForm.setValue(this.contact);
   }
 
+  //update part of the properties
   patchValues() {
     let newPatch = {
       firstName: 'Alireza',
@@ -80,7 +82,27 @@ export class ReactiveComponent implements OnInit {
     this.contactForm.patchValue(newPatch);
   }
 
+  //update the nested form group separately
+  setAddress() {
+    let address = {
+      cityName: 'Toronto',
+      streetName: '18',
+      pin: 'M2N',
+    };
+
+    this.contactForm.get('address')?.setValue(address);
+  }
+
+  //update the value of individual control
+  setCountry() {
+    this.contactForm.get('country')?.setValue(3);
+  }
+
   onSubmit() {
     console.log('Contact Form Val: ', this.contactForm.value);
+  }
+
+  reset() {
+    this.contactForm.reset();
   }
 }

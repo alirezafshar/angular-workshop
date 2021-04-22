@@ -36,15 +36,13 @@ export class TemplateComponent implements OnInit {
     };
   }
 
-  changeCountry() {
-    this.contactForm.controls['country'].setValue(1);
-  }
+    //##update the entire FormGroup
+    setDefault() {
+      this.contactForm.setValue(this.contact);
+    }
 
-  //##Another way:
-  // changeCountry() {
-  //   this.contact.country = 1;
-  // }
 
+  //##update part of the properties
   patchValue() {
     let obj = {
       gender: 'female',
@@ -55,6 +53,7 @@ export class TemplateComponent implements OnInit {
     this.contactForm.control.patchValue(obj);
   }
 
+  //##update the nested form group separately
   changeAddress() {
     let obj = {
       cityName: 'Tehran',
@@ -65,9 +64,16 @@ export class TemplateComponent implements OnInit {
     address.patchValue(obj);
   }
 
-  setDefault() {
-    this.contactForm.setValue(this.contact);
+  
+  //##update the value of individual control
+  changeCountry() {
+    this.contactForm.controls['country'].setValue(1);
   }
+
+  //##Another way:
+  // changeCountry() {
+  //   this.contact.country = 1;
+  // }
 
   onSubmit(contactForm: NgForm) {
     console.log('contactForm: ', contactForm.value);
