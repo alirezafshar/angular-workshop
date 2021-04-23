@@ -9,15 +9,15 @@ import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 export class FormArrayComponent implements OnInit {
   constructor(private FormBuilder: FormBuilder) {}
 
-  employessForm = this.FormBuilder.group({
+  employeesForm = this.FormBuilder.group({
     employees: this.FormBuilder.array([]),
   });
 
   ngOnInit(): void {}
 
   get employees(): FormArray {
-    console.log('form employees getter: ', this.employessForm.get('employees'));
-    return this.employessForm.get('employees') as FormArray;
+    console.log('form employees getter: ', this.employeesForm.get('employees'));
+    return this.employeesForm.get('employees') as FormArray;
   }
 
   newEmployee(): FormGroup {
