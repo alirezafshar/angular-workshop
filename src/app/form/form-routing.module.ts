@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FormArrayComponent } from './form-array/form-array.component';
 import { FormBuilderComponent } from './form-builder/form-builder.component';
 import { FormComponent } from './form.component';
 import { ReactiveComponent } from './reactive/reactive.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
       { path: 'reactive', component: ReactiveComponent },
       { path: 'formBuilder', component: FormBuilderComponent },
       { path: 'valueChanges', component: ValueChangesComponent },
+      { path: 'formArray', component: FormArrayComponent },
     ],
   },
 ];

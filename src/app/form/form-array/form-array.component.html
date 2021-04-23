@@ -1,0 +1,33 @@
+<h2 class="subtitle">Nested FormArray: Add Form Fields Dynamically</h2>
+<form [formGroup]="employeesForm" (ngSubmit)="onSubmit()">
+    Employees:
+    <button (click)="addemployee()">Add Skill</button>
+    <div class="form__control" formArrayName="employees">
+        <div *ngFor="let employee of employees.controls; let i=index">
+            <div [formGroupName]="i">
+                {{i}}
+                <label for="fname">First Name:</label>
+                <input type="text" id="fname" name="fname" formControlName="fname" />
+                <label for="lname">Last Name:</label>
+                <input type="text" id="lname" name="lname" formControlName="lname" />
+                <div formArrayName="skills">
+                    <div *ngFor="let skill of skills(i); let j=index">
+                        <div [formGroupName]="j">
+                            {{j}}
+                            <label for="skill">Skill:</label>
+                            <input type="text" id="skill" name="skill" formControlName="skill" />
+                            <label for="exp">Experience:</label>
+                            <input type="text" id="exp" name="exp" formControlName="exp" />
+
+                            <button (click)="removeSkill(i, j)">Remove Skill</button>
+                        </div>
+                    </div>
+                </div>
+                <button (click)="addSkill(i)">Add New Skill</button>
+                <button (click)="removeEmployees(i)">Remove Skill</button>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit">Submit</button>
+</form>
