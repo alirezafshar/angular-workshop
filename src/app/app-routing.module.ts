@@ -39,6 +39,7 @@ const routes: Routes = [
     path: 'form',
     loadChildren: () => import('./form/form.module').then((m) => m.FormModule),
   },
+  { path: 'service', loadChildren: () => import('./reusable-service/reusable-service.module').then(m => m.ReusableServiceModule) },
   {
     //redirects for the empty path case (404) and a fallback route
     path: '**',

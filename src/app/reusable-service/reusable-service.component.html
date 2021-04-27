@@ -1,0 +1,16 @@
+<app-nav></app-nav>
+<h2 class="title">Angular Service</h2>
+
+<button (click)="getProduct()">Get Product Details</button>
+<ul class="list">
+    <li class="list__item" *ngIf="products">
+        <p class="list__value"><strong>Product ID</strong></p>
+        <p class="list__value"><strong>Product Name</strong></p>
+        <p class="list__value"><strong>Price</strong></p>
+    </li>
+    <li class="list__item" *ngFor="let product of products">
+        <p class="list__value">{{product.productID}}</p>
+        <p class="list__value">{{product.name}}</p>
+        <p class="list__value">{{product.price}}</p>
+    </li>
+</ul>
