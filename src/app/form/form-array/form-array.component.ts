@@ -16,7 +16,6 @@ export class FormArrayComponent implements OnInit {
   ngOnInit(): void {}
 
   get employees(): FormArray {
-    console.log('form employees getter: ', this.employeesForm.get('employees'));
     return this.employeesForm.get('employees') as FormArray;
   }
 
@@ -24,7 +23,7 @@ export class FormArrayComponent implements OnInit {
     return this.FormBuilder.group({
       fname: '',
       lname: '',
-      skill: this.FormBuilder.array([]),
+      skills: this.FormBuilder.array([]),
     });
   }
 
@@ -38,8 +37,7 @@ export class FormArrayComponent implements OnInit {
 
   //Getter cannot have parameters
   skills(i: number) {
-    console.log('from skills getter:', this.employees.at(i).get('skill'));
-    return this.employees.at(i).get('skill') as FormArray;
+    return this.employees.at(i).get('skills') as FormArray;
   }
 
   newSkill(): FormGroup {
@@ -57,7 +55,30 @@ export class FormArrayComponent implements OnInit {
     this.skills(i).removeAt(j);
   }
 
+  setDefaultVal() {
+    let defaultData = {
+      employees: [
+        {
+          fname: 'alireza',
+          lname: 'afshar',
+          skills: [
+            { skill: 'php', exp: '3' },
+            { skill: 'dnn', exp: '3' },
+            { skill: 'react', exp: '2' },
+            { skill: 'angular', exp: null },
+          ],
+        },
+      ],
+    };
+
+    this.employeesForm.patchValue(defaultData);
+  }
+
   onSubmit() {
     console.log('output: ', this.employees.value);
+  }
+
+  clearVal() {
+    this.employees.clear();
   }
 }

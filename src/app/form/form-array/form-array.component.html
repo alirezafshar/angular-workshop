@@ -12,7 +12,7 @@
                 <input type="text" id="lname" class="form__control" name="lname" formControlName="lname" />
                 <button (click)="removeEmployees(i)">Remove Skill</button>
                 
-                <div formArrayName="skill">
+                <div formArrayName="skills">
                     <div *ngFor="let skill of skills(i).controls; let j=index">
                         <div [formGroupName]="j">
                             {{j}}
@@ -28,5 +28,7 @@
             </div>
         </div>
     </div>
+    <button (click)="setDefaultVal()">Set Default Values</button>
     <button type="submit">Submit</button>
+    <button type="clear" (click)="clearVal()">Clear</button>
 </form>

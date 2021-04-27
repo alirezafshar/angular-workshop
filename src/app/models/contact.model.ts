@@ -4,7 +4,7 @@ export class Contact {
     email!: string;
     gender!: string;
     isMarried!: boolean;
-    country!: number;
+    country!: string;
     address!: {
         cityName?: string;
         streetName?: string;

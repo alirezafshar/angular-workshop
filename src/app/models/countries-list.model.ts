@@ -1,4 +1,4 @@
 export class CountriesList {
-    id!: number;
+    id!: string;
     name!: string;
 }

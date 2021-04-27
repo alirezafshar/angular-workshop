@@ -15,7 +15,7 @@ export class ReactiveComponent implements OnInit {
     email: new FormControl(),
     gender: new FormControl(),
     isMarried: new FormControl(),
-    country: new FormControl(0),
+    country: new FormControl(),
     address: new FormGroup({
       cityName: new FormControl(),
       streetName: new FormControl(),
@@ -24,9 +24,9 @@ export class ReactiveComponent implements OnInit {
   });
 
   countries: CountriesList[] = [
-    { id: 1, name: 'Iran' },
-    { id: 2, name: 'Canada' },
-    { id: 3, name: 'United States' },
+    { id: '1', name: 'Iran' },
+    { id: '2', name: 'Canada' },
+    { id: '3', name: 'United States' },
   ];
 
   contact!: Contact;
@@ -40,7 +40,7 @@ export class ReactiveComponent implements OnInit {
       email: '',
       gender: '',
       isMarried: true,
-      country: 0,
+      country: "null",
       address: {
         cityName: '',
         streetName: '',
@@ -57,7 +57,7 @@ export class ReactiveComponent implements OnInit {
       email: 'rahul@gmail.com',
       gender: 'male',
       isMarried: true,
-      country: 1,
+      country: '1',
       address: {
         cityName: 'Bangalore',
         streetName: 'Brigade Road',
@@ -73,7 +73,7 @@ export class ReactiveComponent implements OnInit {
     let newPatch = {
       firstName: 'Alireza',
       lastName: 'Afshar',
-      country: 2,
+      country: '2',
       address: {
         cityName: 'Toronto',
       },
@@ -95,7 +95,7 @@ export class ReactiveComponent implements OnInit {
 
   //update the value of individual control
   setCountry() {
-    this.contactForm.get('country')?.setValue(3);
+    this.contactForm.get('country')?.setValue('3');
   }
 
   onSubmit() {

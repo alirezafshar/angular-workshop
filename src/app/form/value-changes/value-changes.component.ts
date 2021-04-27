@@ -26,9 +26,9 @@ export class ValueChangesComponent implements OnInit {
   });
 
   countries: CountriesList[] = [
-    { id: 1, name: 'Iran' },
-    { id: 2, name: 'Canada' },
-    { id: 3, name: 'United States' },
+    { id: '1', name: 'Iran' },
+    { id: '2', name: 'Canada' },
+    { id: '3', name: 'United States' },
   ];
 
   contact: Contact = {
@@ -37,7 +37,7 @@ export class ValueChangesComponent implements OnInit {
     email: '',
     gender: '',
     isMarried: false,
-    country: 0,
+    country: '0',
     address: {
       cityName: '',
       streetName: '',
@@ -69,6 +69,9 @@ export class ValueChangesComponent implements OnInit {
 
   onSubmit() {
     console.log('onSubmit: ', this.contactForm);
-    console.log('firstName Errors: ', this.contactForm.get('firstName')?.errors);
+    console.log(
+      'firstName Errors: ',
+      this.contactForm.get('firstName')?.errors
+    );
   }
 }

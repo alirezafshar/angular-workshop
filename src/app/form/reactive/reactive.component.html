@@ -36,9 +36,8 @@
     <div class="form__control">
         <label for="country">Country: </label>
         <select id="country" name="country" formControlName="country">
-            <option value="0" [attr.selected]="'0'">Choose Your Country</option>
-            <option [ngValue]="country.id" *ngFor="let country of countries"
-                [attr.selected]="country.id == contact?.country">{{country.name}}</option>
+            <option value="null" disabled>Choose Your Country</option>
+            <option [ngValue]="country.id" *ngFor="let country of countries">{{country.name}}</option>
         </select>
     </div>
 
